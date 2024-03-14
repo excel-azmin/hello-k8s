@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: carepro-web
+spec:
+  replicas: 1  # You can scale this number as needed
+  selector:
+    matchLabels:
+      app: smart-care-web
+  template:
+    metadata:
+      labels:
+        app: smart-care-web
+    spec:
+      containers:
+      - name: smart-care-web
+        image: excelazmin/smart-care-web:v0.0.1
+        ports:
+        - containerPort: 80
